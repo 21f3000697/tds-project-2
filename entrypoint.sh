@@ -1,2 +1,3 @@
 #!/bin/sh
-exec uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}
+PORT=${PORT:-8000}
+exec uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1

@@ -143,3 +143,90 @@ railway logs
 
 ---
 
+# Deployment Guide for Render
+
+## Render Deployment
+
+This application is configured to deploy on Render using uvicorn as the WSGI server.
+
+### Prerequisites
+- Render account
+- Git repository with your code
+
+### Deployment Steps
+
+1. **Connect your repository to Render:**
+   - Go to [render.com](https://render.com)
+   - Click "New +" and select "Web Service"
+   - Connect your GitHub/GitLab repository
+   - Select the repository containing this project
+
+2. **Configure the service:**
+   - **Name:** tds-data-analyst (or your preferred name)
+   - **Environment:** Python
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1`
+   - **Python Version:** 3.12
+
+3. **Environment Variables:**
+   - Add your Gemini API keys as environment variables:
+     - `gemini_api_1`, `gemini_api_2`, etc.
+   - Any other environment variables your app needs
+
+4. **Deploy:**
+   - Click "Create Web Service"
+   - Render will automatically build and deploy your application
+
+### Troubleshooting
+
+#### "gunicorn: command not found" Error
+This error occurs when Render tries to use gunicorn instead of uvicorn. The solution is:
+
+1. **Ensure the start command is correct:**
+   ```
+   uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1
+   ```
+
+2. **Check that requirements.txt includes:**
+   - `fastapi`
+   - `uvicorn[standard]`
+   - `gunicorn` (as backup)
+
+3. **Verify Procfile contains:**
+   ```
+   web: uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1
+   ```
+
+4. **Use render.yaml for explicit configuration** (already included)
+
+#### Common Issues
+
+1. **Port binding errors:** Ensure your app binds to `0.0.0.0` and uses `$PORT`
+2. **Missing dependencies:** Check that all packages in `requirements.txt` are compatible
+3. **Environment variables:** Ensure all required API keys are set in Render dashboard
+
+### Local Testing
+
+To test locally before deploying:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### Monitoring
+
+- Check Render logs for any errors
+- Monitor your application's performance in the Render dashboard
+- Set up alerts for any deployment failures
+
+### Updates
+
+To update your deployment:
+1. Push changes to your Git repository
+2. Render will automatically detect changes and redeploy
+3. Monitor the deployment logs for any issues
+
