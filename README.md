@@ -1,194 +1,310 @@
+# 🌟 **TDS Project 2: Intelligent Data Analysis & Judgment Analysis Agent**
 
-# 🌟 **TDS Project 2: Data Analyst Agent** — *AI-Powered Data Sidekick*
+> **A powerful FastAPI-based service combining intelligent Q&A capabilities with Indian High Court judgment analysis, powered by Google Gemini AI and Wikipedia integration.**
 
-> **A smart, interactive, and beautiful way to analyze your data — powered by Google Generative AI & cutting-edge Python tools.**
-> **Repo:** [📂 View on GitHub](https://github.com/23f1000805/tds-project-2)
-
----
-
-## 📌 **Overview**
-
-The **TDS Data Analyst Agent** transforms raw data into **actionable insights** in minutes.
-Upload your dataset + questions, and get:
-
-* 📊 **Interactive Visualizations**
-* 🧠 **AI-Driven Insights**
-* ⚡ **Automated Analysis Workflows**
-
-Perfect for **business analysts, researchers, and data enthusiasts** who want **fast, accurate, and beautiful results** without manual crunching.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68+-green.svg)](https://fastapi.tiangolo.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/21f3000697/Tds_Project_2)
 
 ---
 
-## ✨ **Features at a Glance**
+## 📋 **Table of Contents**
 
-| Feature                     | Description                                        |
-| --------------------------- | -------------------------------------------------- |
-| 🔍 **Intelligent Analysis** | Understands your data using Google's Generative AI |
-| 📈 **Dynamic Charts**       | Visualizes data with Matplotlib & Seaborn          |
-| 🌐 **Web Scraping**         | Pulls data from URLs in seconds                    |
-| 📁 **Multi-Format Support** | Works with CSV, Excel, JSON, Parquet, TXT          |
-| 🔄 **Batch Processing**     | Answers multiple questions in one go               |
-| 🎨 **Modern UI**            | Clean, responsive, and beginner-friendly           |
-| ⚡ **Real-Time Results**     | Progress tracking with fast computations           |
+- [Overview](#-overview)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [API Endpoints](#-api-endpoints)
+- [Configuration](#-configuration)
+- [Technologies Used](#-technologies-used)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
-## 🚀 **Quick Start**
+## 🎯 **Overview**
 
-### **1️⃣ Clone the Repository**
+**TDS Project 2** is a sophisticated FastAPI-based service that provides two powerful capabilities:
 
-```bash
-git clone https://github.com/23f1000805/tds-project-2.git
-cd tds-project-2
+1. **🔍 Intelligent Q&A Agent**: Leverages Google Gemini AI and Wikipedia integration for comprehensive question answering
+2. **⚖️ Judgment Analysis**: Analyzes Indian High Court judgments with statistical insights and visualizations
+
+This project demonstrates advanced AI integration, data processing, and web scraping capabilities, making it ideal for legal research, data analysis, and intelligent information retrieval.
+
+---
+
+## ✨ **Features**
+
+### **🤖 Intelligent Q&A Agent**
+- **Dual-Mode Operation**: Automatically routes queries to Wikipedia or Google Gemini AI
+- **Smart Routing**: Movie-related queries use Wikipedia scraping, general questions use Gemini LLM
+- **File Input Support**: Accepts both text and file uploads for analysis
+- **Context-Aware Responses**: Provides relevant, accurate answers based on query type
+
+### **⚖️ Judgment Analysis System**
+- **High Court Data Analysis**: Comprehensive analysis of Indian High Court judgments
+- **Statistical Insights**: State-wise statistics and trends
+- **Data Visualization**: Interactive plots and charts for better understanding
+- **Remote Dataset Integration**: Connects to external judgment databases
+
+### **🛠️ Technical Features**
+- **FastAPI Framework**: High-performance, modern web framework
+- **Async Processing**: Efficient handling of concurrent requests
+- **Error Handling**: Robust error management and graceful degradation
+- **Scalable Architecture**: Modular design for easy extension
+
+---
+
+## 🏗️ **Project Structure**
+
+```
+Tds_Project_2/
+├── 📁 agent/
+│   ├── processor.py           # Task routing and processing logic
+│   ├── wikipedia_agent.py     # Wikipedia scraping and analysis
+│   └── llm.py                 # Google Gemini LLM integration
+│
+├── 📁 judgment_analysis/
+│   └── judgment_analysis.py   # High court judgment analysis
+│
+├── 📁 __pycache__/            # Python bytecode cache
+├── 📄 main.py                 # FastAPI application entry point
+├── 📄 requirements.txt        # Python dependencies
+├── 📄 .gitignore             # Git ignore rules
+├── 📄 LICENSE                 # MIT License
+└── 📄 README.md               # This file
 ```
 
-### **2️⃣ Install Dependencies**
+---
 
+## 🚀 **Installation**
+
+### **Prerequisites**
+- Python 3.8 or higher
+- pip package manager
+- Google API key for Gemini AI
+
+### **Step 1: Clone the Repository**
+```bash
+git clone https://github.com/21f3000697/Tds_Project_2.git
+cd Tds_Project_2
+```
+
+### **Step 2: Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### **3️⃣ Set Environment Variables**
-
-Create a `.env` file:
-
+### **Step 3: Environment Configuration**
+Create a `.env` file in the root directory:
 ```env
-# Google Gemini API Keys (Add 1–10 keys for load balancing if you don't have multiple key just paste your one key in all variable)
-gemini_api_1=your_api_key_here
-gemini_api_2=your_api_key_here
-gemini_api_3=your_api_key_here
-gemini_api_4=your_api_key_here
-gemini_api_5=your_api_key_here
-gemini_api_6=your_api_key_here
-gemini_api_7=your_api_key_here
-gemini_api_8=your_api_key_here
-gemini_api_9=your_api_key_here
-gemini_api_10=your_api_key_here
-LLM_TIMEOUT_SECONDS=240
+GOOGLE_API_KEY=your_google_api_key_here
 ```
 
-### **4️⃣ Run the App**
-
+### **Step 4: Verify Installation**
 ```bash
-python app.py
+python -c "import fastapi, uvicorn; print('Installation successful!')"
 ```
 
-Then open **[http://localhost:8000](http://localhost:8000)** in your browser.
-
 ---
 
-## 📖 **How to Use**
+## 💻 **Usage**
 
-### **Step 1: Write Your Questions**
+### **Starting the Server**
+```bash
+# Development mode with auto-reload
+uvicorn main:app --reload
 
-Create a `.txt` file:
-
-```
-What are the top-selling products?
-Find correlation between variable X and Y
-Show sales trends over the last 6 months
+# Production mode
+uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-### **Step 2: Upload Your Data**
-
-* **Required:** Questions file (`.txt`)
-* **Optional:** Dataset in CSV/Excel/JSON/Parquet/TXT
-
-### **Step 3: Get Your Insights**
-
-* 🧮 **Processed by AI**
-* 📊 **Visualized beautifully**
-* 💡 **Actionable recommendations generated**
+### **Accessing the Application**
+- **Local Development**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **Alternative Docs**: http://localhost:8000/redoc
 
 ---
 
-## 🛠 **Tech Stack**
+## 🔌 **API Endpoints**
 
-**Backend**
+### **1. Judgment Analysis**
+```http
+GET /api/judgment-analysis/
+```
 
-* FastAPI 🚀 (Ultra-fast web framework)
-* LangChain 🧠 (LLM orchestration)
-* Google Generative AI ✨ (Smart insights)
-* Pandas + NumPy 📊 (Data manipulation)
-* Matplotlib + Seaborn 🎨 (Visualizations)
+**Response**: Returns summary statistics and visualizations for high court judgments
 
-**Frontend**
+**Example Response**:
+```json
+{
+  "total_judgments": 15000,
+  "states_covered": 28,
+  "analysis_period": "2020-2024",
+  "visualization_url": "/static/plot.png"
+}
+```
 
-* HTML5, CSS3, JavaScript
-* Bootstrap-inspired styling for a professional look
+### **2. Intelligent Q&A**
+```http
+POST /api/
+```
 
----
+**Request Body**:
+```json
+{
+  "question": "What is the plot of Inception?",
+  "file": null
+}
+```
 
-## 🔧 **API Endpoints**
-
-| Method | Endpoint   | Description                |
-| ------ | ---------- | -------------------------- |
-| `GET`  | `/`        | Main web interface         |
-| `POST` | `/api` | Process questions + data   |
-| `GET` | `/summary`  | Advanced Diagnosis of app |
-
----
-
-## 📂 **Supported Data Formats**
-
-| Format  | Extensions      |
-| ------- | --------------- |
-| CSV     | `.csv`          |
-| Excel   | `.xlsx`, `.xls` |
-| JSON    | `.json`         |
-| Parquet | `.parquet`      |
-| Text    | `.txt`          |
+**Response**: AI-generated answer using Wikipedia or Gemini LLM
 
 ---
 
-## 🎯 **Use Cases**
+## ⚙️ **Configuration**
 
-* **Business Intelligence** – Sales trends, customer insights
-* **Research** – Statistical summaries, hypothesis testing
-* **Data Science** – EDA, feature analysis, anomaly detection
+### **Environment Variables**
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `GOOGLE_API_KEY` | Google Gemini AI API key | Yes | None |
+| `PORT` | Server port | No | 8000 |
+| `HOST` | Server host | No | 0.0.0.0 |
+
+### **API Configuration**
+- **Rate Limiting**: Configurable request limits
+- **Timeout Settings**: Adjustable response timeouts
+- **Model Selection**: Choose between different Gemini models
 
 ---
 
-## 🔒 **Security**
+## 🛠️ **Technologies Used**
 
-* Local data processing (no cloud storage)
-* Environment variable protection for API keys
-* Configurable CORS for production environments
+### **Backend Framework**
+- **FastAPI**: Modern, fast web framework for building APIs
+- **Uvicorn**: Lightning-fast ASGI server implementation
+
+### **AI & Machine Learning**
+- **Google Gemini AI**: Advanced language model for intelligent responses
+- **LangChain**: Framework for developing applications with LLMs
+
+### **Data Processing**
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computing
+- **Matplotlib/Seaborn**: Data visualization
+
+### **Web Scraping**
+- **BeautifulSoup**: HTML parsing and web scraping
+- **Requests**: HTTP library for making requests
+
+### **Development Tools**
+- **Python 3.8+**: Programming language
+- **Git**: Version control
+- **MIT License**: Open source licensing
 
 ---
 
-## 🚀 **Deployment Options**
+## 🔧 **Development**
 
-* **Local** → `python app.py`
-* **Production** → `gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker`
-* **Docker**
+### **Running Tests**
+```bash
+# Install test dependencies
+pip install pytest pytest-asyncio
 
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-EXPOSE 8000
-CMD ["python", "app.py"]
+# Run tests
+pytest
+```
+
+### **Code Formatting**
+```bash
+# Install formatting tools
+pip install black isort
+
+# Format code
+black .
+isort .
+```
+
+### **Linting**
+```bash
+# Install linting tools
+pip install flake8
+
+# Run linter
+flake8 .
 ```
 
 ---
 
 ## 🤝 **Contributing**
 
-We welcome PRs!
+We welcome contributions! Please follow these steps:
 
-1. Fork the repo
-2. Create a branch: `git checkout -b feature-name`
-3. Commit + push
-4. Submit PR 🚀
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+3. **Commit** your changes: `git commit -m 'Add amazing feature'`
+4. **Push** to the branch: `git push origin feature/amazing-feature`
+5. **Open** a Pull Request
+
+### **Contribution Guidelines**
+- Follow PEP 8 style guidelines
+- Add tests for new features
+- Update documentation as needed
+- Ensure all tests pass
 
 ---
 
-## 📜 **License**
+## 📄 **License**
 
-Licensed under **MIT** — Free to use, modify, and share.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2025 TDS Project 2 Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
 
 ---
 
+## 📞 **Support & Contact**
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/21f3000697/Tds_Project_2/issues)
+- **Repository**: [View source code](https://github.com/21f3000697/Tds_Project_2)
+- **Documentation**: [API docs available at `/docs` endpoint]
+
+---
+
+## 🙏 **Acknowledgments**
+
+- **Google Gemini AI** for providing advanced language model capabilities
+- **FastAPI** team for the excellent web framework
+- **Open Source Community** for the amazing tools and libraries
+- **Contributors** who help improve this project
+
+---
+
+## 📊 **Project Status**
+
+![GitHub last commit](https://img.shields.io/github/last-commit/21f3000697/Tds_Project_2)
+![GitHub issues](https://img.shields.io/github/issues/21f3000697/Tds_Project_2)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/21f3000697/Tds_Project_2)
+
+---
+
+**⭐ Star this repository if you find it helpful!**
+
+---
+
+*Built with ❤️ using FastAPI, Google Gemini AI, and modern Python technologies.*
