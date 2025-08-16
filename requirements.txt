@@ -24,3 +24,4 @@ duckdb
 psutil
 httpx
 scikit-learn
+s3fs
