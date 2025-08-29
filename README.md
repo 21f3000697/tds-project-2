@@ -60,21 +60,17 @@ This project demonstrates advanced AI integration, data processing, and web scra
 ## 🏗️ **Project Structure**
 
 ```
-Tds_Project_2/
-├── 📁 agent/
-│   ├── processor.py           # Task routing and processing logic
-│   ├── wikipedia_agent.py     # Wikipedia scraping and analysis
-│   └── llm.py                 # Google Gemini LLM integration
-│
-├── 📁 judgment_analysis/
-│   └── judgment_analysis.py   # High court judgment analysis
-│
-├── 📁 __pycache__/            # Python bytecode cache
-├── 📄 main.py                 # FastAPI application entry point
-├── 📄 requirements.txt        # Python dependencies
-├── 📄 .gitignore             # Git ignore rules
-├── 📄 LICENSE                 # MIT License
-└── 📄 README.md               # This file
+├── app.py              # Main FastAPI application  
+├── requirements.txt    # Python dependencies  
+├── Dockerfile          # Docker container setup  
+├── Procfile            # For Heroku deployment  
+├── runtime.txt         # Python runtime version  
+├── entrypoint.sh       # Entrypoint script for deployment  
+├── index.html          # Frontend interface (if any)  
+├── .env.template       # Example environment variables  
+├── DEPLOYMENT_GUIDE.md # Detailed deployment steps  
+└── README.md           # Project documentation  
+
 ```
 
 ---
