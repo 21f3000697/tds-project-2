@@ -37,23 +37,31 @@ This project demonstrates advanced AI integration, data processing, and web scra
 
 ## ✨ **Features**
 
-### **🤖 Intelligent Q&A Agent**
-- **Dual-Mode Operation**: Automatically routes queries to Wikipedia or Google Gemini AI
-- **Smart Routing**: Movie-related queries use Wikipedia scraping, general questions use Gemini LLM
-- **File Input Support**: Accepts both text and file uploads for analysis
-- **Context-Aware Responses**: Provides relevant, accurate answers based on query type
+✅ Natural language Q&A powered by Gemini AI
 
-### **⚖️ Judgment Analysis System**
-- **High Court Data Analysis**: Comprehensive analysis of Indian High Court judgments
-- **Statistical Insights**: State-wise statistics and trends
-- **Data Visualization**: Interactive plots and charts for better understanding
-- **Remote Dataset Integration**: Connects to external judgment databases
+✅ Wikipedia knowledge base integration
 
-### **🛠️ Technical Features**
-- **FastAPI Framework**: High-performance, modern web framework
-- **Async Processing**: Efficient handling of concurrent requests
-- **Error Handling**: Robust error management and graceful degradation
-- **Scalable Architecture**: Modular design for easy extension
+✅ Legal judgment parsing & analysis
+
+✅ RESTful API endpoints (JSON-based responses)
+
+✅ Docker-ready for containerized deployments
+
+✅ Heroku / Cloud-native deployment supported
+
+---
+
+🛠 Tech Stack
+
+Backend: FastAPI, Uvicorn
+
+AI/ML: Google Gemini API
+
+Data Source: Wikipedia, Court Judgments
+
+Deployment: Docker, Heroku
+
+Other Tools: Git, Python-dotenv
 
 ---
 
@@ -115,6 +123,10 @@ uvicorn main:app --reload
 
 # Production mode
 uvicorn main:app --host 0.0.0.0 --port 8000
+
+### **Using Docker**
+docker build -t tds_project2 .
+docker run -p 8000:8000 tds_project2
 ```
 
 ### **Accessing the Application**
